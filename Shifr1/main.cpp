@@ -15,7 +15,7 @@ void check(const wstring& Text, const wstring& key)
     if(Text == decryptedText)
         wcout << L"ОК\n";
     else
-		wcout << L"Плохо\n";
+	 	wcout << L"Плохо\n";
 }
 int main(int argc, char** argv)
 {

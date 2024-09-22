@@ -1,35 +1,32 @@
 #include "cipher.h"
 #include <iostream>
 using namespace std;
-int main(int argc, char** argv)
+int main()
 {
-    std::locale loc("ru_RU.UTF-8");
-    std::locale::global(loc);
     int key;
-    wstring text;
+    string text;
     unsigned op;
-    wcout << L"Введите ключ: ";
-    wcin >> key;
+    cout << "Vvedi key: ";
+    cin >> key;
     if(key <= 0) {
-        wcout << L"Ключ некорректен" << endl;
+    cout << "Key ploxoi" << endl;
     } else {
-        wcout << "Ключ введен" << endl;
-        cipher c(key);
-        do {
-            wcout << L"Алгоритм готов к работе. Выберите действие (0 - выход, 1 - зашифрование, 2 - расшифрование): ";
-            wcin >> op;
-            if(op > 2) {
-                wcout << L"Некорректное действие";
-            } else if(op > 0) {
-                wcout << L"Введите текст: ";
-                wcin >> text;
+    cout << "Key accepted" << endl;
+    cipher c(key);
+    do {
+        cout << "Vvedi metod (1 - encrypt, 2 - decrypt, 0 - exit): ";
+        cin >> op;
+        if(op > 2) {
+            cout << "Nekorrektno" << endl;
+        } else if(op > 0) {
+            cout << "Vvedi text (bez probelov): ";
+            cin >> text;
                 if(op == 1) {
-                    wcout << L"Зашифрованный текст: " << c.encrypt(text) << endl;
+                    cout << "Encrypted text: " << c.encrypt(text) << endl;
                 } else {
-                    wcout << L"Расшифрованный текст: " << c.decrypt(text) << endl;
+                    cout << "Decrypted text: " << c.decrypt(text) << endl;
                 }
-            }
-        } while(op != 0);
-        return 0;
+        }
+    } while(op != 0);
     }
 }

@@ -1,14 +1,12 @@
 #pragma once
-#include <iostream>
-#include <locale>
-#include <map>
 #include <string>
+#include <locale>
+#include <iostream>
+#include <map>
 using namespace std;
-class cipher
-{
+class cipher {
 private:
     int stolb;
-    map<int, map<int, wchar_t>> table;
 public:
     cipher(int key);
     cipher() = delete;
